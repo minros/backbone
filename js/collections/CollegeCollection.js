@@ -1,16 +1,15 @@
 define([
-    'parse',
     'backbone',
-    'models/CollegeModel'
-], function(_, Backbone, CollegeModel){
+], function(Backbone){
 
-    var CollegeCollection = Parse.Collection.extend({
+    var CollegeCollection = Backbone.Collection.extend({
 
-        model: CollegeModel,
+        url: function(){
+            return "https://api.parse.com/1/classes/colleges";
+        },
 
         initialize : function() {
             var self = this;
-            this.query = new Parse.Query(CollegeModel);
         },
 
     });

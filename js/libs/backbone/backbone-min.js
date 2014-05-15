@@ -1169,6 +1169,8 @@
             var beforeSend = options.beforeSend;
             options.beforeSend = function(xhr) {
                 xhr.setRequestHeader('X-HTTP-Method-Override', type);
+                xhr.setRequestHeader('X-Parse-Application-Id', "R0DvNR5Dt622yjhcCBFNSdPj9elbljgzscYCccAO");
+                xhr.setRequestHeader('X-Parse-REST-API-Key', "IChs94CYy2igVLf7cv6QiZuCnsAIJW3NHWEdecCk");
                 if (beforeSend) return beforeSend.apply(this, arguments);
             };
         }
