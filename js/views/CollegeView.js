@@ -2,12 +2,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'baseview',
     'text!templates/collegeTemplate.html'
-], function($, _, Backbone, collegeViewTemplate){
+], function($, _, Backbone, BaseView, collegeViewTemplate){
 
-    var CollegeView = Backbone.View.extend({
-        tagName:  "li",
-        template: _.template(collegeViewTemplate),
+    var CollegeView = BaseView.extend({
+        el: function() {
+            return $(collegeViewTemplate);
+        },
 
         events: {
             "click .showresourcebutton":     "showCollegeResourcesOnMap"
@@ -26,10 +28,10 @@ define([
             //this.collegeResources.query = new Parse.Query(collegeResource).equalTo("college", this.model);
         },
         // Re-render the contents of the college item.
-        render: function() {
-            $(this.el).html(this.template(this.model.toJSON()));
-            return this;
-        },
+//        render: function() {
+////            $(this.el).html(this.template(this.model.toJSON()));
+////            return this;
+//        },
         // Show the college item on map.
         showCollegeResourcesOnMap: function() {
             // Fetch all the college resource items for this college

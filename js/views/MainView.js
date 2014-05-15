@@ -14,6 +14,12 @@ define([
         el: function() {
             return $(mainTemplate);
         },
+        initialize: function() {
+            var self = this;
+            this.CollegeView = CollegeView;
+            this.CollegeListView = CollegeListView;
+            this.CollegeCollection = CollegeCollection;
+        }
 
     });
 

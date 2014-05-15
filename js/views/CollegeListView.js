@@ -9,8 +9,7 @@ define([
     'text!templates/collegeListView.html'
 ], function($, _, Backbone, BaseView, CollectionView, CollegeView, CollegeCollection, collegeListViewTemplate){
 
-    var CollegeListView = BaseView.extend({
-        parent: null,
+    var CollegeListView = new CollectionView({
         el: function() {
             return $(collegeListViewTemplate);
         },
